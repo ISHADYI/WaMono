@@ -7,16 +7,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Menu;
 
 namespace WaMono
 {
     public partial class MainForm : Form
     {
         private List<Product> products = new List<Product>();
+        private List<Product> favorites = new List<Product>();
+        //private List<CartItem> cart = new List<CartItem>();
         private FlowLayoutPanel flowPanel;
         public MainForm()
         {
             InitializeComponent();
+
+            cmbSort.Items.AddRange(new[]
+            {
+                "Без сортировки",
+                "Цена: по возрастанию",
+                "Цена: по убыванию",
+                "Название А→Я",
+                "Название Я→А"
+            });
+
             //this.Size = new Size(1250, 700);
             this.WindowState = FormWindowState.Maximized; // во весь экран
             this.Text = "WaMono — Главная";
@@ -27,8 +40,8 @@ namespace WaMono
                 AutoScroll = true,
                 FlowDirection = FlowDirection.LeftToRight,
                 WrapContents = true,
-                Padding = new Padding(0, 60, 0, 20),
-                BackColor = Color.FromArgb(245, 245, 240)
+                Padding = new Padding(0, 100, 0, 20),
+                //BackColor = Color.FromArgb(245, 245, 240)
             };
             this.Controls.Add(flowPanel);
 
@@ -245,5 +258,6 @@ namespace WaMono
         {
 
         }
+
     }
 }
