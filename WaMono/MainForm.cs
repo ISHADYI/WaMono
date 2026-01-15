@@ -42,7 +42,7 @@ namespace WaMono
                 Id = 1,
                 Name = "Низкий столик котацу",
                 Price = 28900m,
-                ImagePath = "product1.png",
+                ImagePath = "images/product1.png",
                 Description = "Традиционный японский стол с подогревом"
             });
             products.Add(new Product
@@ -50,7 +50,7 @@ namespace WaMono
                 Id = 2,
                 Name = "Тумбочка Takatsy",
                 Price = 15800m,
-                ImagePath = "product2.jpg",
+                ImagePath = "images/product2.jpg",
                 Description = "Натуральный хлопок + латекс"
             });
             products.Add(new Product
@@ -58,7 +58,7 @@ namespace WaMono
                 Id = 3,
                 Name = "Светильник Witadori",
                 Price = 7900m,
-                ImagePath = "product3.jpg",
+                ImagePath = "images/product3.jpg",
                 Description = "Тёплый рассеянный свет"
             });
             products.Add(new Product
@@ -66,7 +66,7 @@ namespace WaMono
                 Id = 4,
                 Name = "Светильник Witadori",
                 Price = 7900m,
-                ImagePath = "product3.jpg",
+                ImagePath = "images/product3.jpg",
                 Description = "Тёплый рассеянный свет"
             });
             products.Add(new Product
@@ -74,7 +74,7 @@ namespace WaMono
                 Id = 5,
                 Name = "Светильник Witadori",
                 Price = 7900m,
-                ImagePath = "product3.jpg",
+                ImagePath = "images/product3.jpg",
                 Description = "Тёплый рассеянный свет"
             });
             products.Add(new Product
@@ -82,7 +82,7 @@ namespace WaMono
                 Id = 6,
                 Name = "Светильник Witadori",
                 Price = 7900m,
-                ImagePath = "product3.jpg",
+                ImagePath = "images/product3.jpg",
                 Description = "Тёплый рассеянный свет"
             });
             products.Add(new Product
@@ -90,7 +90,7 @@ namespace WaMono
                 Id = 7,
                 Name = "Светильник Witadori",
                 Price = 7900m,
-                ImagePath = "product3.jpg",
+                ImagePath = "images/product3.jpg",
                 Description = "Тёплый рассеянный свет"
             });
             products.Add(new Product
@@ -98,7 +98,7 @@ namespace WaMono
                 Id = 8,
                 Name = "Светильник Witadori",
                 Price = 7900m,
-                ImagePath = "product3.jpg",
+                ImagePath = "images/product3.jpg",
                 Description = "Тёплый рассеянный свет"
             });
             products.Add(new Product
@@ -106,7 +106,7 @@ namespace WaMono
                 Id = 6,
                 Name = "Светильник Witadori",
                 Price = 7900m,
-                ImagePath = "product3.jpg",
+                ImagePath = "images/product3.jpg",
                 Description = "Тёплый рассеянный свет"
             });
             products.Add(new Product
@@ -114,7 +114,7 @@ namespace WaMono
                 Id = 6,
                 Name = "Светильник Witadori",
                 Price = 7900m,
-                ImagePath = "product3.jpg",
+                ImagePath = "images/product3.jpg",
                 Description = "Тёплый рассеянный свет"
             });
             products.Add(new Product
@@ -122,7 +122,7 @@ namespace WaMono
                 Id = 6,
                 Name = "Светильник Witadori",
                 Price = 7900m,
-                ImagePath = "product3.jpg",
+                ImagePath = "images/product3.jpg",
                 Description = "Тёплый рассеянный свет"
             });
             products.Add(new Product
@@ -130,7 +130,7 @@ namespace WaMono
                 Id = 6,
                 Name = "Светильник Witadori",
                 Price = 7900m,
-                ImagePath = "product3.jpg",
+                ImagePath = "images/product3.jpg",
                 Description = "Тёплый рассеянный свет"
             });
         }
