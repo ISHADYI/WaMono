@@ -20,7 +20,14 @@ namespace WaMono
         public MainForm()
         {
             InitializeComponent();
+            this.WindowState = FormWindowState.Maximized; // окно во весь экран
+            this.Text = "WaMono — Главная";
 
+            //this.Size = new Size(1250, 700);
+            //AutoScaleMode = AutoScaleMode.Dpi;
+            //AutoSize = true;
+
+            // Сортировка
             cmbSort.Items.AddRange(new[]
             {
                 "Без сортировки",
@@ -29,10 +36,7 @@ namespace WaMono
                 "Название А→Я",
                 "Название Я→А"
             });
-
-            //this.Size = new Size(1250, 700);
-            this.WindowState = FormWindowState.Maximized; // во весь экран
-            this.Text = "WaMono — Главная";
+            cmbSort.SelectedIndex = 0;
 
             flowPanel = new FlowLayoutPanel
             {
@@ -46,8 +50,9 @@ namespace WaMono
             this.Controls.Add(flowPanel);
 
             LoadTestData();
-            CreateProductCards();
+            RefreshProductCards();
         }
+
         private void LoadTestData()
         {
             products.Add(new Product
@@ -147,7 +152,9 @@ namespace WaMono
                 Description = "Тёплый рассеянный свет"
             });
         }
-        private void CreateProductCards()
+
+        // Старый метод
+        /*private void CreateProductCards()
         {
             flowPanel.Controls.Clear();
 
@@ -156,7 +163,28 @@ namespace WaMono
                 Panel card = CreateProductCard(product);
                 flowPanel.Controls.Add(card);
             }
+        }*/
+        // Новый метод обновления карточек
+        private void RefreshProductCards()
+        {
+            flowPanel?.Controls.Clear();
+
+            string searchText = txtSearch.Text?.Trim() ?? "";
+
+            // Фильтрация 
+            var filteredProducts = products
+                .Where(p => string.IsNullOrEmpty(searchText) ||
+                            p.Name.IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0)
+                .ToList();
+
+            // Создаём карточки
+            foreach (var product in filteredProducts)
+            {
+                Panel card = CreateProductCard(product);
+                flowPanel.Controls.Add(card);
+            }
         }
+
         private Panel CreateProductCard(Product p)
         {
             Panel card = new Panel
@@ -259,5 +287,16 @@ namespace WaMono
 
         }
 
+        //Поиск
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            RefreshProductCards();
+        }
+        private void txtSearch_Enter(object sender, EventArgs e)
+        {
+        }
+        private void txtSearch_Leave(object sender, EventArgs e)
+        {
+        }
     }
 }
