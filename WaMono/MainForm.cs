@@ -153,18 +153,7 @@ namespace WaMono
             });
         }
 
-        // Старый метод
-        /*private void CreateProductCards()
-        {
-            flowPanel.Controls.Clear();
-
-            foreach (var product in products)
-            {
-                Panel card = CreateProductCard(product);
-                flowPanel.Controls.Add(card);
-            }
-        }*/
-        // Новый метод обновления карточек
+        // обновления карточек
         private void RefreshProductCards()
         {
             flowPanel?.Controls.Clear();
@@ -172,11 +161,33 @@ namespace WaMono
             string searchText = txtSearch.Text?.Trim() ?? "";
 
             // Фильтрация 
-            var filteredProducts = products
-                .Where(p => string.IsNullOrEmpty(searchText) ||
-                            p.Name.IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0)
-                .ToList();
+            var filteredProducts = products.AsEnumerable();
+            if (!string.IsNullOrEmpty(searchText))
+            {
+                filteredProducts = filteredProducts.Where(p =>
+                    p.Name.IndexOf(searchText, StringComparison.OrdinalIgnoreCase) >= 0);
+            }
+            switch (cmbSort.SelectedIndex)
+            {
+                case 1: // Цена по возрастанию
+                    filteredProducts = filteredProducts.OrderBy(p => p.Price);
+                    break;
 
+                case 2: // Цена по убыванию
+                    filteredProducts = filteredProducts.OrderByDescending(p => p.Price);
+                    break;
+
+                case 3: // Название А-Я
+                    filteredProducts = filteredProducts.OrderBy(p => p.Name);
+                    break;
+
+                case 4: // Название Я-А
+                    filteredProducts = filteredProducts.OrderByDescending(p => p.Name);
+                    break;
+
+                default:
+                    break;
+            }
             // Создаём карточки
             foreach (var product in filteredProducts)
             {
@@ -258,9 +269,9 @@ namespace WaMono
             btnFav.Click += (s, e) => AddToFavorites(p);
             card.Controls.Add(btnFav);
 
-            // Клик по всей карточке → открыть детали
+            // Клик по всей карточке - открыть детали
             card.Click += (s, e) => OpenProductDetails(p);
-            // Также можно сделать кликабельными все дочерние контролы:
+            // кликабельныме все дочерние контролы:
             //foreach (Control c in card.Controls) c.Click += (s, e) => OpenProductDetails(p);
 
             return card;
@@ -292,11 +303,10 @@ namespace WaMono
         {
             RefreshProductCards();
         }
-        private void txtSearch_Enter(object sender, EventArgs e)
+        // Фильтры
+        private void cmbSort_SelectedIndexChanged(object sender, EventArgs e)
         {
-        }
-        private void txtSearch_Leave(object sender, EventArgs e)
-        {
+            RefreshProductCards();
         }
     }
 }

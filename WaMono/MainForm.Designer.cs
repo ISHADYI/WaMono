@@ -30,6 +30,7 @@
         {
             this.mainTitle = new System.Windows.Forms.Label();
             this.pnlHeader = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.lblCartCount = new System.Windows.Forms.Label();
             this.lblFavoritesCount = new System.Windows.Forms.Label();
             this.btnCart = new System.Windows.Forms.Button();
@@ -37,7 +38,6 @@
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.cmbSort = new System.Windows.Forms.ComboBox();
             this.titleH2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.pnlHeader.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,6 +69,19 @@
             this.pnlHeader.Padding = new System.Windows.Forms.Padding(20, 10, 20, 10);
             this.pnlHeader.Size = new System.Drawing.Size(1132, 80);
             this.pnlHeader.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Inter Extra Bold", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(18)))), ((int)(((byte)(27)))));
+            this.label1.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.label1.Location = new System.Drawing.Point(518, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(83, 27);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Поиск";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // lblCartCount
             // 
@@ -113,8 +126,6 @@
             this.txtSearch.Size = new System.Drawing.Size(350, 20);
             this.txtSearch.TabIndex = 2;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
-            this.txtSearch.Enter += new System.EventHandler(this.txtSearch_Enter);
-            this.txtSearch.Leave += new System.EventHandler(this.txtSearch_Leave);
             // 
             // cmbSort
             // 
@@ -124,32 +135,20 @@
             this.cmbSort.Name = "cmbSort";
             this.cmbSort.Size = new System.Drawing.Size(176, 21);
             this.cmbSort.TabIndex = 2;
+            this.cmbSort.SelectedIndexChanged += new System.EventHandler(this.cmbSort_SelectedIndexChanged);
             // 
             // titleH2
             // 
             this.titleH2.AutoSize = true;
-            this.titleH2.Font = new System.Drawing.Font("Inter Extra Bold", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.titleH2.Font = new System.Drawing.Font("Inter Extra Bold", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.titleH2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(18)))), ((int)(((byte)(27)))));
             this.titleH2.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.titleH2.Location = new System.Drawing.Point(12, 83);
+            this.titleH2.Location = new System.Drawing.Point(12, 85);
             this.titleH2.Name = "titleH2";
-            this.titleH2.Size = new System.Drawing.Size(103, 27);
+            this.titleH2.Size = new System.Drawing.Size(90, 23);
             this.titleH2.TabIndex = 3;
             this.titleH2.Text = "Каталог";
             this.titleH2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Inter Extra Bold", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(18)))), ((int)(((byte)(27)))));
-            this.label1.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.label1.Location = new System.Drawing.Point(518, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(83, 27);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Поиск";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // MainForm
             // 
