@@ -118,6 +118,7 @@
             this.btnFavorites.TabIndex = 3;
             this.btnFavorites.Text = "Избранное";
             this.btnFavorites.UseVisualStyleBackColor = true;
+            this.btnFavorites.Click += new System.EventHandler(this.btnFavorites_Click);
             // 
             // txtSearch
             // 

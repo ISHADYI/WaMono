@@ -51,6 +51,7 @@ namespace WaMono
 
             LoadTestData();
             RefreshProductCards();
+            UpdateFavoritesBadge();
         }
 
         private void LoadTestData()
@@ -188,6 +189,23 @@ namespace WaMono
                 default:
                     break;
             }
+
+            var result = filteredProducts.ToList();
+            // Если ничего не найдено И был реальный поисковый запрос
+            if (result.Count == 0 && !string.IsNullOrEmpty(searchText))
+            {
+                var lblNotFound = new Label
+                {
+                    Text = "Такого товара не существует.\nПопробуйте изменить запрос или посмотреть другие товары",
+                    AutoSize = true,
+                    Font = new Font("Segoe UI", 20, FontStyle.Bold),
+                    ForeColor = Color.FromArgb(85, 18, 27)
+                };
+                flowPanel.Controls.Add(lblNotFound);
+
+                return;
+            }
+
             // Создаём карточки
             foreach (var product in filteredProducts)
             {
@@ -284,13 +302,25 @@ namespace WaMono
 
         private void AddToFavorites(Product product)
         {
-            // Логика избранного
-            MessageBox.Show($"Добавлено в избранное:\n{product.Name}", "Избранное");
+            if (favorites.Contains(product))
+            {
+                favorites.Remove(product);
+                MessageBox.Show($"Удалено из избранного:\n{product.Name}", "Избранное");
+            }
+            else
+            {
+                favorites.Add(product);
+                MessageBox.Show($"Добавлено в избранное:\n{product.Name}", "Избранное");
+            }
+
+            UpdateFavoritesBadge();
+            //RefreshProductCards();
         }
+
 
         private void OpenProductDetails(Product product)
         {
-            // Откроем форму с деталями (позже реализуем)
+            // форму с деталями (позже)
             MessageBox.Show($"Открыть детали:\n{product.Name}\n{product.Description}", "Детали товара");
         }
         private void MainForm_Load(object sender, EventArgs e)
@@ -307,6 +337,23 @@ namespace WaMono
         private void cmbSort_SelectedIndexChanged(object sender, EventArgs e)
         {
             RefreshProductCards();
+        }
+
+        private void btnFavorites_Click(object sender, EventArgs e)
+        {
+            var favoritesForm = new FavoritesForm(favorites);
+            this.Hide();
+            favoritesForm.ShowDialog();
+            UpdateFavoritesBadge();
+            RefreshProductCards();
+            this.Show();
+        }
+
+        private void UpdateFavoritesBadge()
+        {
+            int count = favorites.Count;
+            lblFavoritesCount.Text = count > 99 ? "99+" : count.ToString();
+            lblFavoritesCount.Visible = count > 0;
         }
     }
 }
