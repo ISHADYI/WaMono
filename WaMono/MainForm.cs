@@ -15,13 +15,11 @@ namespace WaMono
     {
         private List<Product> products = new List<Product>();
         private List<Product> favorites = new List<Product>();
-        //private List<CartItem> cart = new List<CartItem>();
-        private FlowLayoutPanel flowPanel;
+        private List<CartItem> cart = new List<CartItem>();
+        //private FlowLayoutPanel flowPanel;
         public MainForm()
         {
             InitializeComponent();
-            this.WindowState = FormWindowState.Maximized; // окно во весь экран
-            this.Text = "WaMono — Главная";
 
             //this.Size = new Size(1250, 700);
             //AutoScaleMode = AutoScaleMode.Dpi;
@@ -37,17 +35,6 @@ namespace WaMono
                 "Название Я→А"
             });
             cmbSort.SelectedIndex = 0;
-
-            flowPanel = new FlowLayoutPanel
-            {
-                Dock = DockStyle.Fill,
-                AutoScroll = true,
-                FlowDirection = FlowDirection.LeftToRight,
-                WrapContents = true,
-                Padding = new Padding(0, 100, 0, 20),
-                //BackColor = Color.FromArgb(245, 245, 240)
-            };
-            this.Controls.Add(flowPanel);
 
             LoadTestData();
             RefreshProductCards();
@@ -157,7 +144,7 @@ namespace WaMono
         // обновления карточек
         private void RefreshProductCards()
         {
-            flowPanel?.Controls.Clear();
+            flowPanel.Controls.Clear();
 
             string searchText = txtSearch.Text?.Trim() ?? "";
 
@@ -221,11 +208,10 @@ namespace WaMono
                 Size = new Size(280, 380),
                 BackColor = Color.White,
                 BorderStyle = BorderStyle.FixedSingle,
-                Margin = new Padding(20),
+                Margin = new Padding(4),
                 Cursor = Cursors.Hand
             };
 
-            // Картинка
             PictureBox pb = new PictureBox
             {
                 Size = new Size(260, 220),
@@ -236,7 +222,6 @@ namespace WaMono
             };
             card.Controls.Add(pb);
 
-            // Название
             Label lblName = new Label
             {
                 Text = p.Name,
@@ -248,7 +233,6 @@ namespace WaMono
             };
             card.Controls.Add(lblName);
 
-            // Цена
             Label lblPrice = new Label
             {
                 Text = $"{p.Price:N0} ₽",
@@ -287,19 +271,38 @@ namespace WaMono
             btnFav.Click += (s, e) => AddToFavorites(p);
             card.Controls.Add(btnFav);
 
-            // Клик по всей карточке - открыть детали
+            // открыть детали
             card.Click += (s, e) => OpenProductDetails(p);
             // кликабельныме все дочерние контролы:
             //foreach (Control c in card.Controls) c.Click += (s, e) => OpenProductDetails(p);
 
             return card;
         }
+
+        private void UpdateCartBadge()
+        {
+            int totalItems = cart.Sum(item => item.Quantity);
+            lblCartCount.Text = totalItems > 99 ? "99+" : totalItems.ToString();
+            lblCartCount.Visible = totalItems > 0;
+        }
+        // логика добавления в корзину
         private void AddToCart(Product product)
         {
-            // Здесь будет логика добавления в корзину
-            MessageBox.Show($"Добавлен в корзину:\n{product.Name}", "Корзина");
-        }
+            var existing = cart.FirstOrDefault(ci => ci.Product.Id == product.Id);
+            if (existing != null)
+            {
+                existing.Quantity++;
+                MessageBox.Show($"Количество увеличено: {product.Name} ({existing.Quantity} шт.)");
+            }
+            else
+            {
+                cart.Add(new CartItem { Product = product, Quantity = 1 });
+                MessageBox.Show($"Добавлено в корзину: {product.Name}");
+            }
 
+            UpdateCartBadge();
+        }
+        // логика добавления в избранное
         private void AddToFavorites(Product product)
         {
             if (favorites.Contains(product))
@@ -341,10 +344,11 @@ namespace WaMono
 
         private void btnFavorites_Click(object sender, EventArgs e)
         {
-            var favoritesForm = new FavoritesForm(favorites);
             this.Hide();
+            var favoritesForm = new FavoritesForm(favorites, cart);
             favoritesForm.ShowDialog();
             UpdateFavoritesBadge();
+            UpdateCartBadge();
             RefreshProductCards();
             this.Show();
         }
@@ -354,6 +358,16 @@ namespace WaMono
             int count = favorites.Count;
             lblFavoritesCount.Text = count > 99 ? "99+" : count.ToString();
             lblFavoritesCount.Visible = count > 0;
+        }
+
+        private void btnCart_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            var cartForm = new CartForm(cart);
+            cartForm.ShowDialog();
+            UpdateCartBadge();
+            RefreshProductCards();
+            this.Show();
         }
     }
 }
