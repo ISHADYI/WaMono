@@ -72,7 +72,7 @@
             this.btnToFavorites.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnToFavorites.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnToFavorites.ForeColor = System.Drawing.Color.White;
-            this.btnToFavorites.Location = new System.Drawing.Point(848, 168);
+            this.btnToFavorites.Location = new System.Drawing.Point(848, 207);
             this.btnToFavorites.Name = "btnToFavorites";
             this.btnToFavorites.Size = new System.Drawing.Size(169, 45);
             this.btnToFavorites.TabIndex = 13;
@@ -86,7 +86,7 @@
             this.btnToCart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnToCart.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnToCart.ForeColor = System.Drawing.Color.White;
-            this.btnToCart.Location = new System.Drawing.Point(1023, 168);
+            this.btnToCart.Location = new System.Drawing.Point(1023, 207);
             this.btnToCart.Name = "btnToCart";
             this.btnToCart.Size = new System.Drawing.Size(169, 45);
             this.btnToCart.TabIndex = 14;
@@ -96,7 +96,7 @@
             // 
             // picProduct
             // 
-            this.picProduct.Location = new System.Drawing.Point(12, 77);
+            this.picProduct.Location = new System.Drawing.Point(12, 116);
             this.picProduct.Name = "picProduct";
             this.picProduct.Size = new System.Drawing.Size(354, 441);
             this.picProduct.TabIndex = 15;
@@ -105,7 +105,7 @@
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(372, 99);
+            this.lblName.Location = new System.Drawing.Point(372, 138);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(55, 13);
             this.lblName.TabIndex = 16;
@@ -114,7 +114,7 @@
             // lblPrice
             // 
             this.lblPrice.AutoSize = true;
-            this.lblPrice.Location = new System.Drawing.Point(845, 99);
+            this.lblPrice.Location = new System.Drawing.Point(845, 138);
             this.lblPrice.Name = "lblPrice";
             this.lblPrice.Size = new System.Drawing.Size(31, 13);
             this.lblPrice.TabIndex = 17;
@@ -123,7 +123,7 @@
             // txtDescription
             // 
             this.txtDescription.AutoSize = true;
-            this.txtDescription.Location = new System.Drawing.Point(372, 168);
+            this.txtDescription.Location = new System.Drawing.Point(372, 207);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(55, 13);
             this.txtDescription.TabIndex = 18;

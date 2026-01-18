@@ -16,7 +16,7 @@ namespace WaMono
         private List<Product> products = new List<Product>();
         private List<Product> favorites = new List<Product>();
         private List<CartItem> cart = new List<CartItem>();
-        //private FlowLayoutPanel flowPanel;
+
         public MainForm()
         {
             InitializeComponent();
@@ -267,10 +267,10 @@ namespace WaMono
 
         private void UpdateCartBadge()
         {
-            //int totalItems = cart.Sum(item => item.Quantity);
-            int count = cart.Count;
-            lblCartCount.Text = count > 99 ? "99+" : count.ToString();
-            lblCartCount.Visible = count > 0;
+            int totalItems = cart.Sum(item => item.Quantity);
+            //int count = cart.Count;
+            lblCartCount.Text = totalItems > 99 ? "99+" : totalItems.ToString();
+            lblCartCount.Visible = totalItems > 0;
         }
         // логика добавления в корзину
         private void AddToCart(Product product)

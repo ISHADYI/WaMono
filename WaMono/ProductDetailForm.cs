@@ -67,5 +67,10 @@ namespace WaMono
         {
             addToFavoritesAction?.Invoke(product);
         }
+
+        private void btnFavorites_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

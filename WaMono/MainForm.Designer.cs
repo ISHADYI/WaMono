@@ -74,6 +74,7 @@
             this.lblCartCount.Size = new System.Drawing.Size(13, 13);
             this.lblCartCount.TabIndex = 6;
             this.lblCartCount.Text = "0";
+            this.lblCartCount.Visible = false;
             // 
             // lblFavoritesCount
             // 
@@ -83,6 +84,7 @@
             this.lblFavoritesCount.Size = new System.Drawing.Size(13, 13);
             this.lblFavoritesCount.TabIndex = 5;
             this.lblFavoritesCount.Text = "0";
+            this.lblFavoritesCount.Visible = false;
             // 
             // btnCart
             // 
