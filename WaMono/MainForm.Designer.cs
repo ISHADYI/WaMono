@@ -69,7 +69,7 @@
             // lblCartCount
             // 
             this.lblCartCount.AutoSize = true;
-            this.lblCartCount.Location = new System.Drawing.Point(1168, 43);
+            this.lblCartCount.Location = new System.Drawing.Point(1179, 43);
             this.lblCartCount.Name = "lblCartCount";
             this.lblCartCount.Size = new System.Drawing.Size(13, 13);
             this.lblCartCount.TabIndex = 6;
@@ -78,7 +78,7 @@
             // lblFavoritesCount
             // 
             this.lblFavoritesCount.AutoSize = true;
-            this.lblFavoritesCount.Location = new System.Drawing.Point(1066, 43);
+            this.lblFavoritesCount.Location = new System.Drawing.Point(1024, 42);
             this.lblFavoritesCount.Name = "lblFavoritesCount";
             this.lblFavoritesCount.Size = new System.Drawing.Size(13, 13);
             this.lblFavoritesCount.TabIndex = 5;
@@ -86,9 +86,9 @@
             // 
             // btnCart
             // 
-            this.btnCart.Location = new System.Drawing.Point(1099, 38);
+            this.btnCart.Location = new System.Drawing.Point(1053, 29);
             this.btnCart.Name = "btnCart";
-            this.btnCart.Size = new System.Drawing.Size(75, 23);
+            this.btnCart.Size = new System.Drawing.Size(120, 40);
             this.btnCart.TabIndex = 4;
             this.btnCart.Text = "Корзина";
             this.btnCart.UseVisualStyleBackColor = true;
@@ -96,9 +96,9 @@
             // 
             // btnFavorites
             // 
-            this.btnFavorites.Location = new System.Drawing.Point(998, 38);
+            this.btnFavorites.Location = new System.Drawing.Point(898, 29);
             this.btnFavorites.Name = "btnFavorites";
-            this.btnFavorites.Size = new System.Drawing.Size(75, 23);
+            this.btnFavorites.Size = new System.Drawing.Size(120, 40);
             this.btnFavorites.TabIndex = 3;
             this.btnFavorites.Text = "Избранное";
             this.btnFavorites.UseVisualStyleBackColor = true;
@@ -122,7 +122,7 @@
             "Цена: по убыванию",
             "Название А-Я",
             "Название Я-А"});
-            this.cmbSort.Location = new System.Drawing.Point(1016, 118);
+            this.cmbSort.Location = new System.Drawing.Point(1016, 95);
             this.cmbSort.Name = "cmbSort";
             this.cmbSort.Size = new System.Drawing.Size(176, 21);
             this.cmbSort.TabIndex = 2;
@@ -134,7 +134,7 @@
             this.titleH2.Font = new System.Drawing.Font("Inter Extra Bold", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.titleH2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(18)))), ((int)(((byte)(27)))));
             this.titleH2.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.titleH2.Location = new System.Drawing.Point(569, 117);
+            this.titleH2.Location = new System.Drawing.Point(569, 94);
             this.titleH2.Name = "titleH2";
             this.titleH2.Size = new System.Drawing.Size(90, 23);
             this.titleH2.TabIndex = 3;
@@ -144,9 +144,9 @@
             // flowPanel
             // 
             this.flowPanel.AutoScroll = true;
-            this.flowPanel.Location = new System.Drawing.Point(12, 165);
+            this.flowPanel.Location = new System.Drawing.Point(12, 133);
             this.flowPanel.Name = "flowPanel";
-            this.flowPanel.Size = new System.Drawing.Size(1180, 567);
+            this.flowPanel.Size = new System.Drawing.Size(1180, 599);
             this.flowPanel.TabIndex = 7;
             // 
             // MainForm

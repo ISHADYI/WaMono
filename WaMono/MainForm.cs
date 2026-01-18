@@ -206,8 +206,10 @@ namespace WaMono
                 Location = new Point(10, 10),
                 SizeMode = PictureBoxSizeMode.Zoom,
                 ImageLocation = p.ImagePath,
-                BorderStyle = BorderStyle.None
+                BorderStyle = BorderStyle.None,
+                Cursor = Cursors.Hand
             };
+            pb.Click += (s, e) => OpenProductDetails(p);
             card.Controls.Add(pb);
 
             Label lblName = new Label
@@ -259,19 +261,16 @@ namespace WaMono
             btnFav.Click += (s, e) => AddToFavorites(p);
             card.Controls.Add(btnFav);
 
-            // открыть детали
-            card.Click += (s, e) => OpenProductDetails(p);
-            // кликабельныме все дочерние контролы:
-            //foreach (Control c in card.Controls) c.Click += (s, e) => OpenProductDetails(p);
-
             return card;
         }
 
+
         private void UpdateCartBadge()
         {
-            int totalItems = cart.Sum(item => item.Quantity);
-            lblCartCount.Text = totalItems > 99 ? "99+" : totalItems.ToString();
-            lblCartCount.Visible = totalItems > 0;
+            //int totalItems = cart.Sum(item => item.Quantity);
+            int count = cart.Count;
+            lblCartCount.Text = count > 99 ? "99+" : count.ToString();
+            lblCartCount.Visible = count > 0;
         }
         // логика добавления в корзину
         private void AddToCart(Product product)
@@ -311,8 +310,15 @@ namespace WaMono
 
         private void OpenProductDetails(Product product)
         {
-            // форму с деталями (позже)
-            MessageBox.Show($"Открыть детали:\n{product.Name}\n{product.Description}", "Детали товара");
+            var detailForm = new ProductDetailForm(
+                product,
+                AddToCart,
+                AddToFavorites
+            );
+
+            this.Hide();
+            detailForm.ShowDialog();
+            this.Show();
         }
         private void MainForm_Load(object sender, EventArgs e)
         {

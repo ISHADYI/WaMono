@@ -195,7 +195,7 @@
             this.MaximizeBox = false;
             this.Name = "CheckoutForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CheckoutForm";
+            this.Text = "Покупка";
             this.Load += new System.EventHandler(this.CheckoutForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
