@@ -21,19 +21,7 @@ namespace WaMono
         {
             InitializeComponent();
 
-            //this.Size = new Size(1250, 700);
-            //AutoScaleMode = AutoScaleMode.Dpi;
-            //AutoSize = true;
-
             // Сортировка
-            cmbSort.Items.AddRange(new[]
-            {
-                "Без сортировки",
-                "Цена: по возрастанию",
-                "Цена: по убыванию",
-                "Название А→Я",
-                "Название Я→А"
-            });
             cmbSort.SelectedIndex = 0;
 
             LoadTestData();

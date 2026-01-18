@@ -116,6 +116,12 @@
             // 
             this.cmbSort.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbSort.FormattingEnabled = true;
+            this.cmbSort.Items.AddRange(new object[] {
+            "Без сортировки",
+            "Цена: по возрастанию",
+            "Цена: по убыванию",
+            "Название А-Я",
+            "Название Я-А"});
             this.cmbSort.Location = new System.Drawing.Point(1016, 118);
             this.cmbSort.Name = "cmbSort";
             this.cmbSort.Size = new System.Drawing.Size(176, 21);

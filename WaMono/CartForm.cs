@@ -35,7 +35,7 @@ namespace WaMono
                     ForeColor = Color.FromArgb(85, 18, 27)
                 };
                 flowCart.Controls.Add(lblEmpty);
-                return;
+                //return;
             }
             else
             {
@@ -154,7 +154,22 @@ namespace WaMono
         }
         private void btnBuy_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("покупка в разработке!");
+            if (cart.Count == 0)
+            {
+                MessageBox.Show("Ваша корзина пуста!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            using (var checkout = new CheckoutForm())
+            {
+                if (checkout.ShowDialog() == DialogResult.OK)
+                {
+                    // если заказ оформлен очищаем корзину
+                    cart.Clear();
+                    LoadCartItems();
+                    UpdateTotal();        
+                }
+            }
         }
     }
 }
