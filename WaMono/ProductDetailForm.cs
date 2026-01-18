@@ -45,7 +45,6 @@ namespace WaMono
             txtDescription.ForeColor = Color.FromArgb(70, 70, 70);
         }
 
-
         private void ProductDetailForm_Load(object sender, EventArgs e)
         {
 

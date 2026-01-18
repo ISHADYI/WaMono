@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Menu;
+using System.IO;
 
 namespace WaMono
 {
@@ -21,10 +22,10 @@ namespace WaMono
         {
             InitializeComponent();
 
-            // Сортировка
             cmbSort.SelectedIndex = 0;
 
-            LoadTestData();
+            //LoadTestData();
+            LoadProductsFromFile();
             RefreshProductCards();
             UpdateFavoritesBadge();
         }
@@ -263,7 +264,53 @@ namespace WaMono
 
             return card;
         }
+        private void LoadProductsFromFile()
+        {
+            products.Clear();
 
+            string filePath = "products.txt";
+
+            if (!File.Exists(filePath))
+            {
+                MessageBox.Show("Файл products.txt не найден!", "Ошибка");
+                return;
+            }
+
+            try
+            {
+                using (StreamReader sr = new StreamReader(filePath, Encoding.GetEncoding(1251)))
+                {
+                    string line;
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        if (string.IsNullOrWhiteSpace(line) || line.StartsWith("//")) continue;
+
+                        string[] parts = line.Split(';');
+
+                        if (parts.Length >= 5)
+                        {
+                            if (int.TryParse(parts[0].Trim(), out int id) &&
+                                decimal.TryParse(parts[2].Trim(), out decimal price))
+                            {
+                                Product prod = new Product
+                                {
+                                    Id = id,
+                                    Name = parts[1].Trim(),
+                                    Price = price,
+                                    ImagePath = parts[3].Trim(),
+                                    Description = parts[4].Trim()
+                                };
+                                products.Add(prod);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка чтения файла: {ex.Message}", "Ошибка");
+            }
+        }
 
         private void UpdateCartBadge()
         {
