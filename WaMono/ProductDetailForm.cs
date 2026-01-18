@@ -39,7 +39,6 @@ namespace WaMono
             lblPrice.ForeColor = Color.FromArgb(220, 53, 69);
 
             txtDescription.Text = product.Description ?? "Подробное описание отсутствует.";
-            //txtDescription.ReadOnly = true;
             txtDescription.BackColor = Color.White;
             txtDescription.BorderStyle = BorderStyle.None;
             txtDescription.Font = new Font("Segoe UI", 11);
