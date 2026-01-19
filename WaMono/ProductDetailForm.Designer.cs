@@ -41,11 +41,11 @@
             // 
             // btnBack
             // 
-            this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(53)))), ((int)(((byte)(69)))));
+            this.btnBack.BackColor = System.Drawing.Color.LightGray;
             this.btnBack.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBack.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnBack.ForeColor = System.Drawing.Color.White;
+            this.btnBack.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(54)))), ((int)(((byte)(57)))));
             this.btnBack.Location = new System.Drawing.Point(0, 716);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(1204, 45);
@@ -58,7 +58,7 @@
             // 
             this.mainTitle.AutoSize = true;
             this.mainTitle.Font = new System.Drawing.Font("Inter Extra Bold", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.mainTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(18)))), ((int)(((byte)(27)))));
+            this.mainTitle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(250)))), ((int)(((byte)(239)))));
             this.mainTitle.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.mainTitle.Location = new System.Drawing.Point(536, 9);
             this.mainTitle.Name = "mainTitle";
@@ -133,7 +133,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(250)))), ((int)(((byte)(239)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(54)))), ((int)(((byte)(57)))));
             this.ClientSize = new System.Drawing.Size(1204, 761);
             this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.lblPrice);

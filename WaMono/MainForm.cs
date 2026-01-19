@@ -24,110 +24,9 @@ namespace WaMono
 
             cmbSort.SelectedIndex = 0;
 
-            //LoadTestData();
             LoadProductsFromFile();
             RefreshProductCards();
             UpdateFavoritesBadge();
-        }
-
-        private void LoadTestData()
-        {
-            products.Add(new Product
-            {
-                Id = 1,
-                Name = "Низкий столик котацу",
-                Price = 28900m,
-                ImagePath = "images/product1.png",
-                Description = "Традиционный японский стол с подогревом"
-            });
-            products.Add(new Product
-            {
-                Id = 2,
-                Name = "Тумбочка Takatsy",
-                Price = 15800m,
-                ImagePath = "images/product2.jpg",
-                Description = "Натуральный хлопок + латекс"
-            });
-            products.Add(new Product
-            {
-                Id = 3,
-                Name = "Светильник Witadori",
-                Price = 7900m,
-                ImagePath = "images/product3.jpg",
-                Description = "Тёплый рассеянный свет"
-            });
-            products.Add(new Product
-            {
-                Id = 4,
-                Name = "Светильник Witadori",
-                Price = 7900m,
-                ImagePath = "images/product3.jpg",
-                Description = "Тёплый рассеянный свет"
-            });
-            products.Add(new Product
-            {
-                Id = 5,
-                Name = "Светильник Witadori",
-                Price = 7900m,
-                ImagePath = "images/product3.jpg",
-                Description = "Тёплый рассеянный свет"
-            });
-            products.Add(new Product
-            {
-                Id = 6,
-                Name = "Светильник Witadori",
-                Price = 7900m,
-                ImagePath = "images/product3.jpg",
-                Description = "Тёплый рассеянный свет"
-            });
-            products.Add(new Product
-            {
-                Id = 7,
-                Name = "Светильник Witadori",
-                Price = 7900m,
-                ImagePath = "images/product3.jpg",
-                Description = "Тёплый рассеянный свет"
-            });
-            products.Add(new Product
-            {
-                Id = 8,
-                Name = "Светильник Witadori",
-                Price = 7900m,
-                ImagePath = "images/product3.jpg",
-                Description = "Тёплый рассеянный свет"
-            });
-            products.Add(new Product
-            {
-                Id = 6,
-                Name = "Светильник Witadori",
-                Price = 7900m,
-                ImagePath = "images/product3.jpg",
-                Description = "Тёплый рассеянный свет"
-            });
-            products.Add(new Product
-            {
-                Id = 6,
-                Name = "Светильник Witadori",
-                Price = 7900m,
-                ImagePath = "images/product3.jpg",
-                Description = "Тёплый рассеянный свет"
-            });
-            products.Add(new Product
-            {
-                Id = 6,
-                Name = "Светильник Witadori",
-                Price = 7900m,
-                ImagePath = "images/product3.jpg",
-                Description = "Тёплый рассеянный свет"
-            });
-            products.Add(new Product
-            {
-                Id = 6,
-                Name = "Светильник Witadori",
-                Price = 7900m,
-                ImagePath = "images/product3.jpg",
-                Description = "Тёплый рассеянный свет"
-            });
         }
 
         // обновления карточек
@@ -175,7 +74,7 @@ namespace WaMono
                     Text = "Такого товара не существует.\nПопробуйте изменить запрос или посмотреть другие товары",
                     AutoSize = true,
                     Font = new Font("Segoe UI", 20, FontStyle.Bold),
-                    ForeColor = Color.FromArgb(85, 18, 27)
+                    ForeColor = Color.FromArgb(254, 250, 239)
                 };
                 flowPanel.Controls.Add(lblNotFound);
 
@@ -195,7 +94,7 @@ namespace WaMono
             Panel card = new Panel
             {
                 Size = new Size(280, 380),
-                BackColor = Color.White,
+                BackColor = Color.FromArgb(211, 211, 211),
                 BorderStyle = BorderStyle.FixedSingle,
                 Margin = new Padding(4),
                 //Cursor = Cursors.Hand

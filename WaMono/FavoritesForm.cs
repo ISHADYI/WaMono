@@ -34,7 +34,7 @@ namespace WaMono
                     Text = "Вы не добавили ничего в избранное",
                     Font = new Font("Segoe UI", 16, FontStyle.Bold),
                     AutoSize = true,
-                    ForeColor = Color.FromArgb(85, 18, 27)
+                    ForeColor = Color.FromArgb(254, 250, 239)
                 };
                 flowFavorites.Controls.Add(lblEmpty);
                 return;
@@ -51,7 +51,7 @@ namespace WaMono
             Panel card = new Panel
             {
                 Size = new Size(280, 406),
-                BackColor = Color.White,
+                BackColor = Color.FromArgb(211, 211, 211),
                 BorderStyle = BorderStyle.FixedSingle,
                 Margin = new Padding(4)
             };

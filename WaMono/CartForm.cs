@@ -52,10 +52,10 @@ namespace WaMono
         {
             Panel panel = new Panel
             { 
-                Height = 142,
+                Height = 140,
                 Margin = new Padding(0, 0, 0, 15),
                 BorderStyle = BorderStyle.FixedSingle,
-                BackColor = Color.White,
+                BackColor = Color.FromArgb(211, 211, 211),
                 Width = 1160,
             };
             // img
