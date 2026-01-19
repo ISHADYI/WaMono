@@ -32,7 +32,7 @@ namespace WaMono
 
             lblName.Text = product.Name;
             lblName.Font = new Font("Segoe UI", 20, FontStyle.Bold);
-            lblName.ForeColor = Color.FromArgb(40, 44, 52);
+            lblName.ForeColor = Color.FromArgb(254, 250, 239);
 
             lblPrice.Text = $"{product.Price:N0} ₽";
             lblPrice.Font = new Font("Segoe UI", 28, FontStyle.Bold);
@@ -42,8 +42,6 @@ namespace WaMono
             txtDesc.BorderStyle = BorderStyle.None;
             txtDesc.Font = new Font("Segoe UI", 11);
             txtDesc.ForeColor = Color.FromArgb(254, 250, 239);
-            //txtDescription.AutoSize = false;
-            //txtDescription.Width = 150;
         }
 
         private void ProductDetailForm_Load(object sender, EventArgs e)
@@ -65,16 +63,6 @@ namespace WaMono
         private void btnToFavorites_Click(object sender, EventArgs e)
         {
             addToFavoritesAction?.Invoke(product);
-        }
-
-        private void btnFavorites_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtDescription_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
