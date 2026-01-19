@@ -32,7 +32,7 @@ namespace WaMono
                     Text = "Ваша корзина пуста",
                     Font = new Font("Segoe UI", 18, FontStyle.Bold),
                     AutoSize = true,
-                    ForeColor = Color.FromArgb(85, 18, 27)
+                    ForeColor = Color.FromArgb(254, 250, 239)
                 };
                 flowCart.Controls.Add(lblEmpty);
                 //return;

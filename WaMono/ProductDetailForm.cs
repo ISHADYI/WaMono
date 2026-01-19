@@ -38,11 +38,12 @@ namespace WaMono
             lblPrice.Font = new Font("Segoe UI", 28, FontStyle.Bold);
             lblPrice.ForeColor = Color.FromArgb(220, 53, 69);
 
-            txtDescription.Text = product.Description ?? "Подробное описание отсутствует.";
-            txtDescription.BackColor = Color.White;
-            txtDescription.BorderStyle = BorderStyle.None;
-            txtDescription.Font = new Font("Segoe UI", 11);
-            txtDescription.ForeColor = Color.FromArgb(70, 70, 70);
+            txtDesc.Text = product.Description ?? "Подробное описание отсутствует.";
+            txtDesc.BorderStyle = BorderStyle.None;
+            txtDesc.Font = new Font("Segoe UI", 11);
+            txtDesc.ForeColor = Color.FromArgb(254, 250, 239);
+            //txtDescription.AutoSize = false;
+            //txtDescription.Width = 150;
         }
 
         private void ProductDetailForm_Load(object sender, EventArgs e)
@@ -67,6 +68,11 @@ namespace WaMono
         }
 
         private void btnFavorites_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtDescription_Click(object sender, EventArgs e)
         {
 
         }

@@ -35,7 +35,7 @@
             this.picProduct = new System.Windows.Forms.PictureBox();
             this.lblName = new System.Windows.Forms.Label();
             this.lblPrice = new System.Windows.Forms.Label();
-            this.txtDescription = new System.Windows.Forms.Label();
+            this.txtDesc = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.picProduct)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,7 +72,7 @@
             this.btnToFavorites.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnToFavorites.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnToFavorites.ForeColor = System.Drawing.Color.White;
-            this.btnToFavorites.Location = new System.Drawing.Point(848, 207);
+            this.btnToFavorites.Location = new System.Drawing.Point(848, 240);
             this.btnToFavorites.Name = "btnToFavorites";
             this.btnToFavorites.Size = new System.Drawing.Size(169, 45);
             this.btnToFavorites.TabIndex = 13;
@@ -86,7 +86,7 @@
             this.btnToCart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnToCart.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnToCart.ForeColor = System.Drawing.Color.White;
-            this.btnToCart.Location = new System.Drawing.Point(1023, 207);
+            this.btnToCart.Location = new System.Drawing.Point(1023, 240);
             this.btnToCart.Name = "btnToCart";
             this.btnToCart.Size = new System.Drawing.Size(169, 45);
             this.btnToCart.TabIndex = 14;
@@ -120,14 +120,16 @@
             this.lblPrice.TabIndex = 17;
             this.lblPrice.Text = "цена";
             // 
-            // txtDescription
+            // txtDesc
             // 
-            this.txtDescription.AutoSize = true;
-            this.txtDescription.Location = new System.Drawing.Point(372, 207);
-            this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(55, 13);
-            this.txtDescription.TabIndex = 18;
-            this.txtDescription.Text = "описание";
+            this.txtDesc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(54)))), ((int)(((byte)(57)))));
+            this.txtDesc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(250)))), ((int)(((byte)(239)))));
+            this.txtDesc.Location = new System.Drawing.Point(372, 240);
+            this.txtDesc.Multiline = true;
+            this.txtDesc.Name = "txtDesc";
+            this.txtDesc.ReadOnly = true;
+            this.txtDesc.Size = new System.Drawing.Size(457, 317);
+            this.txtDesc.TabIndex = 20;
             // 
             // ProductDetailForm
             // 
@@ -135,7 +137,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(54)))), ((int)(((byte)(57)))));
             this.ClientSize = new System.Drawing.Size(1204, 761);
-            this.Controls.Add(this.txtDescription);
+            this.Controls.Add(this.txtDesc);
             this.Controls.Add(this.lblPrice);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.picProduct);
@@ -163,6 +165,6 @@
         private System.Windows.Forms.PictureBox picProduct;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblPrice;
-        private System.Windows.Forms.Label txtDescription;
+        private System.Windows.Forms.TextBox txtDesc;
     }
 }
