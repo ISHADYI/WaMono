@@ -167,7 +167,7 @@ namespace WaMono
             }
 
             var result = filteredProducts.ToList();
-            // Если ничего не найдено И был реальный поисковый запрос
+            // Если ничего не найдено
             if (result.Count == 0 && !string.IsNullOrEmpty(searchText))
             {
                 var lblNotFound = new Label
@@ -198,7 +198,7 @@ namespace WaMono
                 BackColor = Color.White,
                 BorderStyle = BorderStyle.FixedSingle,
                 Margin = new Padding(4),
-                Cursor = Cursors.Hand
+                //Cursor = Cursors.Hand
             };
 
             PictureBox pb = new PictureBox
@@ -244,7 +244,8 @@ namespace WaMono
                 BackColor = Color.FromArgb(60, 140, 80),
                 ForeColor = Color.White,
                 FlatStyle = FlatStyle.Flat,
-                Font = new Font("Segoe UI", 10)
+                Font = new Font("Segoe UI", 10),
+                Cursor = Cursors.Hand
             };
             btnCart.Click += (s, e) => AddToCart(p);
             card.Controls.Add(btnCart);
@@ -257,7 +258,8 @@ namespace WaMono
                 BackColor = Color.FromArgb(220, 50, 70),
                 ForeColor = Color.White,
                 FlatStyle = FlatStyle.Flat,
-                Font = new Font("Segoe UI", 11, FontStyle.Bold)
+                Font = new Font("Segoe UI", 11, FontStyle.Bold),
+                Cursor = Cursors.Hand
             };
             btnFav.Click += (s, e) => AddToFavorites(p);
             card.Controls.Add(btnFav);
@@ -311,44 +313,34 @@ namespace WaMono
                 MessageBox.Show($"Ошибка чтения файла: {ex.Message}", "Ошибка");
             }
         }
-
+        // Бейджики
         private void UpdateCartBadge()
         {
             int totalItems = cart.Sum(item => item.Quantity);
-            //int count = cart.Count;
             lblCartCount.Text = totalItems > 99 ? "99+" : totalItems.ToString();
             lblCartCount.Visible = totalItems > 0;
         }
+        private void UpdateFavoritesBadge()
+        {
+            int count = favorites.Count;
+            lblFavoritesCount.Text = count > 99 ? "99+" : count.ToString();
+            lblFavoritesCount.Visible = count > 0;
+        }
+
         // логика добавления в корзину
         private void AddToCart(Product product)
         {
             var existing = cart.FirstOrDefault(ci => ci.Product.Id == product.Id);
-            if (existing != null)
-            {
-                existing.Quantity++;
-                MessageBox.Show($"Количество увеличено: {product.Name} ({existing.Quantity} шт.)");
-            }
-            else
-            {
-                cart.Add(new CartItem { Product = product, Quantity = 1 });
-                MessageBox.Show($"Добавлено в корзину: {product.Name}");
-            }
-
+            if (existing != null) existing.Quantity++;
+            else cart.Add(new CartItem { Product = product, Quantity = 1 });
+               
             UpdateCartBadge();
         }
         // логика добавления в избранное
         private void AddToFavorites(Product product)
         {
-            if (favorites.Contains(product))
-            {
-                favorites.Remove(product);
-                MessageBox.Show($"Удалено из избранного:\n{product.Name}", "Избранное");
-            }
-            else
-            {
-                favorites.Add(product);
-                MessageBox.Show($"Добавлено в избранное:\n{product.Name}", "Избранное");
-            }
+            if (favorites.Contains(product)) favorites.Remove(product);
+            else favorites.Add(product);
 
             UpdateFavoritesBadge();
             //RefreshProductCards();
@@ -369,7 +361,6 @@ namespace WaMono
         }
         private void MainForm_Load(object sender, EventArgs e)
         {
-
         }
 
         //Поиск
@@ -392,13 +383,6 @@ namespace WaMono
             UpdateCartBadge();
             RefreshProductCards();
             this.Show();
-        }
-
-        private void UpdateFavoritesBadge()
-        {
-            int count = favorites.Count;
-            lblFavoritesCount.Text = count > 99 ? "99+" : count.ToString();
-            lblFavoritesCount.Visible = count > 0;
         }
 
         private void btnCart_Click(object sender, EventArgs e)
